@@ -9,12 +9,7 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     var friends: [Friend] = []
-    //var friends = [
-//      "Tom",
-//      "Ann",
-//      "Bob",
-//      "Jack"
-//    ]
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -9,9 +9,11 @@ import UIKit
 
 class AllGroupsTableViewController: UITableViewController {
 
+    var allgroups: [Group] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        generateAllGroups()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -21,25 +23,35 @@ class AllGroupsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    private func generateAllGroups() {
+        let group1 = Group(groupName: "Group1", groupAvatarURL: "allgroup")
+        let group2 = Group(groupName: "Group2", groupAvatarURL: "group1")
+        let group3 = Group(groupName: "Group3", groupAvatarURL: "group2")
+        let group4 = Group(groupName: "Group4", groupAvatarURL: "allgroup")
+        
+        allgroups.append(group1)
+        allgroups.append(group2)
+        allgroups.append(group3)
+        allgroups.append(group4)
+        
+        tableView.reloadData()
     }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return allgroups.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupsCell", for: indexPath) as! AllGroupsTableViewCell
+        let group = allgroups[indexPath.row]
+        cell.allGroupName.text = group.groupName
+        cell.allGroupImage.image = UIImage.init(named: group.groupAvatarURL)
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
