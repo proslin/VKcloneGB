@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
 
     }
+    
     @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
     
     @objc func keyboardWasShown(notification: Notification) {

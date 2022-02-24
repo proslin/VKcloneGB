@@ -11,6 +11,8 @@ class AllGroupsTableViewController: UITableViewController {
 
     var allgroups: [Group] = []
     
+    var delegate: SelectedGroupDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         generateAllGroups()
@@ -52,6 +54,11 @@ class AllGroupsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedGroup = allgroups[indexPath.row]
+        delegate?.selectedGroup(selectedGroup: selectedGroup)
+        self.navigationController?.popViewController(animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

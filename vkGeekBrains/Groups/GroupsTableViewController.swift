@@ -7,7 +7,13 @@
 
 import UIKit
 
-class GroupsTableViewController: UITableViewController {
+protocol SelectedGroupDelegate: class {
+    func selectedGroup(selectedGroup: Group)
+}
+
+class GroupsTableViewController: UITableViewController, SelectedGroupDelegate {
+    
+    
 
     var groups: [Group] = []
     
@@ -20,7 +26,19 @@ class GroupsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        let allGroupVC = storyboard?.instantiateViewController(withIdentifier: "allGroupsViewControllerKey") as! AllGroupsTableViewController
+        allGroupVC.delegate = self
+        //self.navigationController?.show(allGroupVC, sender: nil)
+        self.show(allGroupVC, sender: nil)
+    }
+    
+    func selectedGroup(selectedGroup: Group) {
+        groups.append(selectedGroup)
+        print(groups)
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     private func generateGroups() {

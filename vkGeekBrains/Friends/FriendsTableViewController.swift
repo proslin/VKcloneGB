@@ -21,10 +21,10 @@ class FriendsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     private func generateFriends() {
-        let friend1 = Friend(friendName: "Bob", friendAvatarURL: "man")
-        let friend2 = Friend(friendName: "Paul", friendAvatarURL: "man")
-        let friend3 = Friend(friendName: "Lora", friendAvatarURL: "woman")
-        let friend4 = Friend(friendName: "Jane", friendAvatarURL: "woman")
+        let friend1 = Friend(friendName: "Bob", friendAvatarURL: "cat", friendPhotoAlbum: ["man", "man", "man", "group2"])
+        let friend2 = Friend(friendName: "Paul", friendAvatarURL: "man", friendPhotoAlbum: ["man", "man", "man"])
+        let friend3 = Friend(friendName: "Lora", friendAvatarURL: "woman", friendPhotoAlbum: ["woman", "woman", "woman", "group1"])
+        let friend4 = Friend(friendName: "Jane", friendAvatarURL: "woman", friendPhotoAlbum: ["woman", "woman", "woman"])
         
         friends.append(friend1)
         friends.append(friend2)
@@ -56,6 +56,18 @@ class FriendsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFriend = friends[indexPath.row]
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PhotoViewComtrollerKey") as! PhotosCollectionViewController
+        vc.selectedModel = selectedFriend
+        self.show(vc, sender: nil)
+    }
+    
+    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return
+//    }
 
     /*
     // Override to support conditional editing of the table view.

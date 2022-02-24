@@ -10,4 +10,5 @@ import Foundation
 struct Friend {
     var friendName: String
     var friendAvatarURL: String
+    var friendPhotoAlbum: [String]
 }
