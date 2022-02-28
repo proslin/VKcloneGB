@@ -81,17 +81,6 @@
                                             <color key="baseForegroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="view.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="OV5-sd-hlR" eventType="touchUpInside" id="NHt-W8-0Pj"/>
                                             <segue destination="lJk-5C-6Oc" kind="show" id="ip7-0y-9Bi"/>
@@ -148,7 +137,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="R8Q-Z9-SHv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.80784313730000001" green="0.16862745100000001" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="100" id="IXu-7H-fpr" customClass="FriendsTableViewCell" customModule="vkGeekBrains" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
@@ -157,36 +146,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Rp-Z4-agr">
-                                            <rect key="frame" x="20" y="20" width="60" height="60"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaW-io-9LU" customClass="AvatarView" customModule="vkGeekBrains" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="20" width="80" height="60"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="40O-We-oXi"/>
-                                                <constraint firstAttribute="width" constant="60" id="c1I-Q7-Qds"/>
+                                                <constraint firstAttribute="width" constant="80" id="Fv7-5d-Hnv"/>
+                                                <constraint firstAttribute="height" constant="80" id="UOE-7h-xtx"/>
                                             </constraints>
-                                        </imageView>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadow">
+                                                    <real key="value" value="13"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rf-OS-K7d">
-                                            <rect key="frame" x="100" y="39.5" width="314" height="21"/>
+                                            <rect key="frame" x="120" y="39.5" width="41.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaW-io-9LU" customClass="AvatarView" customModule="vkGeekBrains" customModuleProvider="target">
-                                            <rect key="frame" x="287" y="11" width="107" height="78"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="0Rp-Z4-agr" firstAttribute="top" secondItem="W3v-Mc-dfa" secondAttribute="top" constant="20" id="OC5-ZU-EhP"/>
-                                        <constraint firstItem="0Rp-Z4-agr" firstAttribute="leading" secondItem="W3v-Mc-dfa" secondAttribute="leading" constant="20" id="PKH-ok-RtD"/>
-                                        <constraint firstAttribute="bottom" secondItem="0Rp-Z4-agr" secondAttribute="bottom" constant="20" id="PTw-pt-DKO"/>
-                                        <constraint firstItem="4rf-OS-K7d" firstAttribute="trailing" secondItem="W3v-Mc-dfa" secondAttribute="trailingMargin" constant="20" id="X1B-tx-M5u"/>
-                                        <constraint firstItem="4rf-OS-K7d" firstAttribute="leading" secondItem="0Rp-Z4-agr" secondAttribute="trailing" constant="20" id="eba-Xe-jKo"/>
-                                        <constraint firstItem="4rf-OS-K7d" firstAttribute="centerY" secondItem="W3v-Mc-dfa" secondAttribute="centerY" id="hu9-eI-fhv"/>
+                                        <constraint firstItem="QaW-io-9LU" firstAttribute="top" secondItem="W3v-Mc-dfa" secondAttribute="top" constant="20" id="8TJ-QX-NX4"/>
+                                        <constraint firstItem="4rf-OS-K7d" firstAttribute="centerY" secondItem="W3v-Mc-dfa" secondAttribute="centerY" id="VLE-cr-JhU"/>
+                                        <constraint firstItem="4rf-OS-K7d" firstAttribute="leading" secondItem="QaW-io-9LU" secondAttribute="trailing" constant="20" id="YAs-zs-DsL"/>
+                                        <constraint firstItem="QaW-io-9LU" firstAttribute="leading" secondItem="W3v-Mc-dfa" secondAttribute="leading" constant="20" id="mA9-Rp-fo7"/>
+                                        <constraint firstAttribute="bottom" secondItem="QaW-io-9LU" secondAttribute="bottom" constant="20" id="wRq-oM-ADc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="friendImage" destination="0Rp-Z4-agr" id="kuD-JZ-sQk"/>
+                                    <outlet property="avatarView" destination="QaW-io-9LU" id="iDI-Ei-FJO"/>
                                     <outlet property="friendName" destination="4rf-OS-K7d" id="Bvh-Kh-qsp"/>
                                 </connections>
                             </tableViewCell>
@@ -301,7 +290,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="tms-bt-fi6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.58823529409999997" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" id="mtg-B8-ryT" customClass="GroupsTableViewCell" customModule="vkGeekBrains" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="100.5"/>

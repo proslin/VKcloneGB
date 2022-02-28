@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Group {
+struct Group: Equatable {
     var groupName: String
     var groupAvatarURL: String
+   // let data: Bool
+    
+//    static func == (fObj:Group, tObj:Group) -> Bool {
+//        return fObj.data == tObj:data
+//    }
 }

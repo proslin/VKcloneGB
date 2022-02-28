@@ -9,7 +9,8 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     var friends: [Friend] = []
-   
+    @IBOutlet weak var avatarView: AvatarView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +52,8 @@ class FriendsTableViewController: UITableViewController {
 
         let friend = friends[indexPath.row]
         cell.friendName.text = friend.friendName
-        cell.friendImage.image = UIImage.init(named: friend.friendAvatarURL)
+        //cell.friendImage.image = UIImage.init(named: friend.friendAvatarURL)
+        cell.avatarView.imageView.image = UIImage.init(named: friend.friendAvatarURL)
 
         return cell
     }

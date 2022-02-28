@@ -50,6 +50,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     
         // Configure the cell
         cell.photo.image = UIImage.init(named: selectedModel?.friendPhotoAlbum[indexPath.row] ?? "group1")
+        cell.likeLabel.text = "0"
         return cell
     }
 
